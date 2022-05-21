@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.example.moviedbsample.R
 import com.example.moviedbsample.databinding.FragmentMovieListBinding
+import com.example.moviedbsample.ui.adapter.MovieAdapter
 
 
 class MovieListFragment : Fragment() {
@@ -24,5 +25,14 @@ class MovieListFragment : Fragment() {
         binding.vmodel = viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
         return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        var adapter=MovieAdapter({})
+        binding.rvMovieList.adapter=adapter
+        viewModel.movieList.observe(viewLifecycleOwner){adapter.submitList(it)}
+
     }
 }

@@ -1,5 +1,6 @@
 package com.example.moviedbsample.ui.movielist
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -25,6 +26,7 @@ class MovieListViewModel : ViewModel() {
 
             movieList.value = list
             status.value = ApiStatus.DONE
+            Log.d("tag" , list[0].posterPath)
         }
     }
 
