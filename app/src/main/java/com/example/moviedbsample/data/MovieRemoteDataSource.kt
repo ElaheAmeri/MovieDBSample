@@ -13,6 +13,14 @@ class MovieRemoteDataSource {
         }
 
     }
+
+    suspend fun comingSoon(): List<Movie>{
+        try {
+            return MoviesApi.retrofitService.comingSoonMovie().movieList
+        }catch (e:Exception){
+            return getSampleMovies()
+        }
+    }
     fun getSampleMovies() : List<Movie>{
         return listOf(
             Movie(listOf(), 111,"" , "","supranos" , false),

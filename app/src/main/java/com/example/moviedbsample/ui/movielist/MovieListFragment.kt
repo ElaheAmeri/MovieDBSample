@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.moviedbsample.R
 import com.example.moviedbsample.databinding.FragmentMovieListBinding
 import com.example.moviedbsample.ui.adapter.MovieAdapter
@@ -33,6 +34,13 @@ class MovieListFragment : Fragment() {
         var adapter=MovieAdapter({})
         binding.rvMovieList.adapter=adapter
         viewModel.movieList.observe(viewLifecycleOwner){adapter.submitList(it)}
+        binding.btnComingSoon.setOnClickListener(){
+            goToComingSoonFragment()
+        }
+    }
 
+
+    fun goToComingSoonFragment(){
+        findNavController().navigate(R.id.action_movieListFragment_to_comingSoonFragment)
     }
 }

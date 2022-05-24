@@ -9,5 +9,14 @@
         android:id="@+id/movieListFragment"
         android:name="com.example.moviedbsample.ui.movielist.MovieListFragment"
         android:label="fragment_movie_list"
-        tools:layout="@layout/fragment_movie_list" />
+        tools:layout="@layout/fragment_movie_list" >
+        <action
+            android:id="@+id/action_movieListFragment_to_comingSoonFragment"
+            app:destination="@id/comingSoonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comingSoonFragment"
+        android:name="com.example.moviedbsample.ui.comingsoon.ComingSoonFragment"
+        android:label="fragment_coming_soon"
+        tools:layout="@layout/fragment_coming_soon" />
 </navigation>

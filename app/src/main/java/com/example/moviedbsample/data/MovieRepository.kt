@@ -13,6 +13,9 @@ class MovieRepository(val movieRemoteDataSource : MovieRemoteDataSource ,) {
         return "youtube /watch v = "+ movieRemoteDataSource.getVideoKey()
     }
 
+    suspend fun comingSoon() : List<Movie>{
+        return  movieRemoteDataSource.comingSoon()
+    }
 
 
 }

@@ -23,7 +23,6 @@ class MovieListViewModel : ViewModel() {
         viewModelScope.launch {
 
             val list = Container.movieRepository.getMovies()
-
             movieList.value = list
             status.value = ApiStatus.DONE
             Log.d("tag" , list[0].posterPath)
